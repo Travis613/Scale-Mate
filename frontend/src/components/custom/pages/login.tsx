@@ -10,8 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export function Login() {
+  const [username, setUsername] = useState<string>();
+  const [password, setPassword] = useState<string>();
+
   return (
     <Card className="max-w-md mx-auto my-6">
       <CardHeader className="py-4">
@@ -21,7 +25,12 @@ export function Login() {
       <CardContent className="flex flex-col gap-6">
         <div>
           <Label>Username:</Label>
-          <Input className="py-6" placeholder="Unicorn Wizard" />
+          <Input
+            className="py-6"
+            placeholder="Unicorn Wizard"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
         <div>
           <Label>Password:</Label>
@@ -29,6 +38,8 @@ export function Login() {
             type="password"
             className="py-6 tracking-[0.25em]"
             placeholder="........"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <Button size={"lg"} className={"w-full py-6 bg-[#2563eb]"}>
