@@ -1,3 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./components/custom/pages/login";
+
 export default function App() {
-  return <></>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
