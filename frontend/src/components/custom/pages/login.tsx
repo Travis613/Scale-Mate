@@ -13,8 +13,8 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 export function Login() {
-  const [username, setUsername] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const [username, setUsername] = useState<string | undefined>();
+  const [password, setPassword] = useState<string | undefined>();
 
   return (
     <Card className="max-w-md mx-auto my-6">
@@ -48,7 +48,7 @@ export function Login() {
       </CardContent>
       <CardFooter className="flex gap-2 justify-center">
         <p>Don't have an account?</p>
-        <Link to={""} className="text-blue-600">
+        <Link to={"sign up"} className="text-blue-600">
           Sign Up
         </Link>
       </CardFooter>
