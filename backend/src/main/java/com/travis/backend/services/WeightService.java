@@ -13,7 +13,7 @@ public class WeightService {
         this.repo = repo;
     }
 
-    public void addWeight(Weight weight){
-        repo.save(weight);
+    public Weight addWeight(Weight weight){
+        return repo.save(weight);
     }
 }
