@@ -1,8 +1,5 @@
 package com.travis.backend.models;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +19,6 @@ public class Weight {
     private Long id;
     private Double weight;
     private String note;
-    private LocalDate date;
-    private LocalTime time;
-
+    private String date;
+    private String time;
 }
