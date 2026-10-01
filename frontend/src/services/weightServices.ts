@@ -8,13 +8,18 @@ export async function logWeight(weight: number, note: string) {
     time: computeTime(),
   };
 
-  const response = await fetch("http://localhost:8080/api/v1/logWeight", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  console.log(response);
+  try {
+    const response = await fetch("http://localhost:8080/api/v1/logWeight", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      return `Error: ${response}`;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
