@@ -1,5 +1,7 @@
 package com.travis.backend.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.travis.backend.models.Weight;
@@ -15,5 +17,9 @@ public class WeightService {
 
     public Weight addWeight(Weight weight){
         return repo.save(weight);
+    }
+
+    public List<Weight> getWeights(){
+        return repo.findAll();
     }
 }
