@@ -22,7 +22,6 @@ export function AddWeight() {
             value={weight}
             onChange={(e) => setWeight(Number(e.target.value))}
           />
-
           <Badge
             variant={"secondary"}
             className="border-blue-300 bg-blue-100 text-blue-700 px-3 py-2 "
@@ -30,19 +29,18 @@ export function AddWeight() {
             LBS
           </Badge>
         </div>
-
         <div className="flex flex-col gap-2 py-5">
           <Label>NOTE</Label>
-
           <Input
             value={note}
             className="py-7"
             onChange={(e) => setNote(e.target.value)}
           />
-
           <Button
             className="bg-blue-500 hover\:bg-blue-400 w-full py-7"
-            onClick={() => logWeight(weight, note)}
+            onClick={() => {
+              logWeight(weight, note);
+            }}
           >
             <Check />
             Save Entry
