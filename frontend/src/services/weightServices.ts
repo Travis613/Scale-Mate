@@ -28,11 +28,10 @@ export async function fetchWeights() {
   try {
     const response = await fetch("http://localhost:8080/api/v1/viewWeights");
     const data = await response.json();
-    if (data === null) {
-      return "No logged weights";
+    if (data !== null) {
+      return data;
     }
-    return data;
   } catch (error) {
-    console.log(error);
+    console.log("Error");
   }
 }

@@ -10,10 +10,10 @@ export default function Header() {
       </div>
       <div>
         <Button variant={"link"}>
-          <Link to="/add">Log Weight</Link>
+          <Link to="/">Log Weight</Link>
         </Button>
         <Button variant={"link"}>
-          <Link to="/">History</Link>
+          <Link to="/viewWeights">History</Link>
         </Button>
       </div>
     </header>
