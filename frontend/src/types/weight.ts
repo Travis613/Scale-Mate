@@ -3,4 +3,5 @@ export type Weight = {
   id: number;
   date: string;
   time: string;
+  note: string;
 };
