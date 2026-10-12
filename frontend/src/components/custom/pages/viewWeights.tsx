@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Item,
   ItemContent,
@@ -8,6 +9,7 @@ import {
 import { fetchWeights } from "@/services/weightServices";
 import type { Weight } from "@/types/weight";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function ViewWeights() {
   const [weights, setWeights] = useState<Weight[]>([]);
@@ -24,43 +26,52 @@ export function ViewWeights() {
   );
 
   return (
-    <div className="max-w-lg mx-auto mt-2 bg-white shadow-lg shadow-blue-100 p-6 border rounded-sm flex flex-col gap-5">
-      <div className="flex">
-        <div>
-          <h1 className="text-xl font-medium">Weight History</h1>
-          <p className="font-light text-sm">
-            A chronological log of you daily weigh-ins and changes
-          </p>
+    <>
+      <div className="max-w-lg mx-auto mt-2 bg-white shadow-lg shadow-blue-100 p-6 border rounded-sm flex flex-col gap-5">
+        <div className="flex">
+          <div>
+            <h1 className="text-xl font-medium">Weight History</h1>
+            <p className="font-light text-sm">
+              A chronological log of you daily weigh-ins and changes
+            </p>
+          </div>
+          <Badge variant={"secondary"}>{weights.length} Entries</Badge>
         </div>
-        <Badge variant={"secondary"}>{weights.length} Entries</Badge>
-      </div>
-      <div>
-        {weights.length > 0 ? (
-          weights.map((value) => (
-            <Item variant={"outline"} className="p-4">
-              <ItemContent>
-                <div className="flex justify-between">
-                  <div>
-                    <ItemTitle>
-                      <p className="font-semibold">{value.date}</p>
-                      <p className="font-light">{value.time}</p>
-                    </ItemTitle>
-                    <ItemDescription>{value.note}</ItemDescription>
+        <div>
+          {weights.length > 0 ? (
+            weights.map((value) => (
+              <Item variant={"outline"} className="p-4">
+                <ItemContent>
+                  <div className="flex justify-between">
+                    <div>
+                      <ItemTitle>
+                        <p className="font-semibold">{value.date}</p>
+                        <p className="font-light">{value.time}</p>
+                      </ItemTitle>
+                      <ItemDescription>{value.note}</ItemDescription>
+                    </div>
+                    <div className="flex flex-row gap-1 items-center">
+                      <span className="text-lg font-medium">
+                        {value.weight}
+                      </span>
+                      <p className="text-sm font-light">lbs</p>
+                    </div>
                   </div>
-                  <div className="flex flex-row gap-1 items-center">
-                    <span className="text-lg font-medium">{value.weight}</span>
-                    <p className="text-sm font-light">lbs</p>
-                  </div>
-                </div>
-              </ItemContent>
+                </ItemContent>
+              </Item>
+            ))
+          ) : (
+            <Item className="text-center">
+              <ItemContent>No weights logged yet</ItemContent>
             </Item>
-          ))
-        ) : (
-          <Item className="text-center">
-            <ItemContent>No weights logged yet</ItemContent>
-          </Item>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+      <div className="max-w-full flex justify-center my-2">
+        <Button className="max-w-1/2 bg-blue-500 h-10">
+          <Link to={"/"}>+ Log Today's Weight</Link>
+        </Button>
+      </div>
+    </>
   );
 }
