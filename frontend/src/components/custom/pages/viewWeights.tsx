@@ -35,7 +35,7 @@ export function ViewWeights() {
         <Badge variant={"secondary"}>{weights.length} Entries</Badge>
       </div>
       <div>
-        {weights !== null ? (
+        {weights.length > 0 ? (
           weights.map((value) => (
             <Item variant={"outline"} className="p-4">
               <ItemContent>
@@ -56,11 +56,9 @@ export function ViewWeights() {
             </Item>
           ))
         ) : (
-          <p>
-            <Item>
-              <ItemContent>No Weight to display</ItemContent>
-            </Item>
-          </p>
+          <Item className="text-center">
+            <ItemContent>No weights logged yet</ItemContent>
+          </Item>
         )}
       </div>
     </div>
