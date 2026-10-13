@@ -1,11 +1,11 @@
-import { computeDate, computeTime } from "@/util/weightUtils";
+import { computeDateAndTime } from "@/util/weightUtils";
 
 export async function logWeight(weight: number, note: string) {
   const data = {
     weight: weight,
     note: note,
-    date: computeDate(),
-    time: computeTime(),
+    date: computeDateAndTime().computeDate(),
+    time: computeDateAndTime().computeTime(),
   };
 
   try {
