@@ -37,7 +37,7 @@ export function AddWeight() {
             onChange={(e) => setNote(e.target.value)}
           />
           <Button
-            className="bg-blue-500 hover\:bg-blue-400 w-full py-7"
+            className="bg-blue-500 hover:bg-blue-400 w-full py-7"
             onClick={() => {
               logWeight(weight, note);
               setWeight(0.1);

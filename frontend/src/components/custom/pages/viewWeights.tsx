@@ -1,11 +1,12 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
+import { cn } from "@/lib/utils";
 import { fetchWeights } from "@/services/weightServices";
 import type { Weight } from "@/types/weight";
 import { useEffect, useState } from "react";
@@ -68,9 +69,15 @@ export function ViewWeights() {
         </div>
       </div>
       <div className="max-w-full flex justify-center my-2">
-        <Button className="max-w-1/2 bg-blue-500 h-10">
-          <Link to={"/"}>+ Log Today's Weight</Link>
-        </Button>
+        <Link
+          className={cn(
+            buttonVariants({ variant: "default" }),
+            "max-w-[60%] bg-blue-500 h-11 hover:bg-blue-400", // Added explicit width syntax and a hover state
+          )}
+          to="/"
+        >
+          + Log Today's Weight
+        </Link>
       </div>
     </>
   );
