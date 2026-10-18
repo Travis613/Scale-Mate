@@ -29,7 +29,7 @@ export async function fetchWeights() {
     const response = await fetch("http://localhost:8080/api/v1/viewWeights");
     const data = await response.json();
     if (data !== null) {
-      return data;
+      return data.reverse();
     }
   } catch (error) {
     console.log("Error");
