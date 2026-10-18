@@ -4,8 +4,8 @@ export async function logWeight(weight: number, note: string) {
   const data = {
     weight: weight,
     note: note,
-    date: computeDateAndTime().computeDate(),
-    time: computeDateAndTime().computeTime(),
+    date: computeDateAndTime().date,
+    time: computeDateAndTime().time,
   };
 
   try {

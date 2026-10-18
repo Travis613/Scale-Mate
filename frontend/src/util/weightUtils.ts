@@ -1,27 +1,17 @@
-export const computeDateAndTime = () => {
+export function computeDateAndTime() {
   const dateObject = new Date();
 
-  function computeTime() {
-    const hours = dateObject.getHours();
-    const minutes = dateObject.getMinutes();
+  const day = dateObject.getDate();
+  const month = dateObject.getMonth() + 1;
+  const year = dateObject.getFullYear();
+  const date = `${month}/${day}/${year}`;
 
-    if (minutes < 10) {
-      return `${hours}:0${minutes}`;
-    } else {
-      return `${hours}:${minutes}`;
-    }
-  }
-
-  function computeDate() {
-    const day = dateObject.getDate();
-    const month = dateObject.getMonth() + 1;
-    const year = dateObject.getFullYear();
-
-    return `${month}/${day}/${year}`;
-  }
+  const hours = dateObject.getHours();
+  const minutes = dateObject.getMinutes();
+  const time = `${hours}:${minutes < 10 ? 0 : ""}${minutes}`;
 
   return {
-    computeDate,
-    computeTime,
+    date,
+    time,
   };
-};
+}
