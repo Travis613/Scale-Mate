@@ -1,15 +1,19 @@
 import { computeDateAndTime } from "@/util/weightUtils";
 
+const POSTROUTE = "http://localhost:8080/api/v1/logWeight";
+
 export async function logWeight(weight: number, note: string) {
+  const { date, time } = computeDateAndTime();
+
   const data = {
-    weight: weight,
-    note: note,
-    date: computeDateAndTime().date,
-    time: computeDateAndTime().time,
+    weight,
+    note,
+    date,
+    time,
   };
 
   try {
-    const response = await fetch("http://localhost:8080/api/v1/logWeight", {
+    const response = await fetch(POSTROUTE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,10 +21,12 @@ export async function logWeight(weight: number, note: string) {
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      return `Error: ${response}`;
+      const ERRORMESSAGE = await response.text();
+      throw new Error(`error: ${ERRORMESSAGE}`);
     }
   } catch (error) {
-    console.log(error);
+    console.error(`Failed to log weight: ${error}`);
+    // rethrow error
   }
 }
 
