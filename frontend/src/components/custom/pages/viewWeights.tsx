@@ -72,7 +72,7 @@ export function ViewWeights() {
         <Link
           className={cn(
             buttonVariants({ variant: "default" }),
-            "max-w-[60%] bg-blue-500 h-11 hover:bg-blue-400", // Added explicit width syntax and a hover state
+            "max-w-[60%] bg-blue-500 h-11 hover:bg-blue-400",
           )}
           to="/"
         >

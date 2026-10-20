@@ -8,7 +8,7 @@ import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function AddWeight() {
-  const [weight, setWeight] = useState(0.1);
+  const [weight, setWeight] = useState(0);
   const [note, setNote] = useState("");
 
   return (
@@ -40,7 +40,7 @@ export function AddWeight() {
             className="bg-blue-500 hover:bg-blue-400 w-full py-7"
             onClick={() => {
               logWeight(weight, note);
-              setWeight(0.1);
+              setWeight(0);
               setNote("");
             }}
           >
