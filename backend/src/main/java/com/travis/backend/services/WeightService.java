@@ -4,16 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
 import com.travis.backend.models.Weight;
 import com.travis.backend.repos.WeightRepo;
 
-@Service 
+@Service
+@AllArgsConstructor
 public class WeightService {
     private final WeightRepo repo;
-
-    WeightService(WeightRepo repo){
-        this.repo = repo;
-    }
 
     public Weight addWeight(Weight weight){
         return repo.save(weight);
