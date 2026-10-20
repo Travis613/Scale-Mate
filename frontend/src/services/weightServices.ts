@@ -37,8 +37,6 @@ export async function fetchWeights() {
     const data = await response.json();
     if (data !== null) {
       return data.reverse();
-    } else {
-      return [];
     }
   } catch (error) {
     console.error(`Error fetching weights: ${error}`);

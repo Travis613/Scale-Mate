@@ -38,7 +38,7 @@ export function ViewWeights() {
           </div>
           <Badge variant={"secondary"}>{weights.length} Entries</Badge>
         </div>
-        <div>
+        <div className="flex flex-col gap-2">
           {weights.length > 0 ? (
             weights.map((value) => (
               <Item variant={"outline"} className="p-4">
