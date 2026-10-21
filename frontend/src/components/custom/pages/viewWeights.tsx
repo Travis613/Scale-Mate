@@ -15,16 +15,9 @@ import { Link } from "react-router-dom";
 export function ViewWeights() {
   const [weights, setWeights] = useState<Weight[]>([]);
 
-  useEffect(
-    () => () => {
-      async function loadWeights() {
-        const results = await fetchWeights();
-        setWeights(results);
-      }
-      loadWeights();
-    },
-    [],
-  );
+  useEffect(() => {
+    fetchWeights().then((value) => setWeights(value));
+  });
 
   return (
     <>
