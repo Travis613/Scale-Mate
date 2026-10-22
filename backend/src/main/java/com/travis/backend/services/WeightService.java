@@ -21,4 +21,9 @@ public class WeightService {
     public List<Weight> getWeights(){
         return repo.findAll();
     }
+
+    public Weight updateWeight(Weight weight, Long id){
+        Weight updatedWeight = repo.save(weight);
+        return updatedWeight;
+    }
 }
