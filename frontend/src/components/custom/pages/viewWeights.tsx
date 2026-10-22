@@ -21,7 +21,7 @@ export function ViewWeights() {
 
   return (
     <>
-      <div className="max-w-lg mx-auto mt-2 bg-white shadow-lg shadow-blue-100 p-6 border rounded-sm flex flex-col gap-5">
+      <div className="max-w-2xl mx-auto mt-2 bg-white shadow-lg shadow-blue-100 p-6 border rounded-sm flex flex-col gap-5">
         <div className="flex">
           <div>
             <h1 className="text-xl font-medium">Weight History</h1>
