@@ -10,10 +10,13 @@ import { cn } from "@/lib/utils";
 import { fetchWeights } from "@/services/weightServices";
 import type { Weight } from "@/types/weight";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Pencil } from "lucide-react";
 
 export function ViewWeights() {
   const [weights, setWeights] = useState<Weight[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchWeights().then((value) => setWeights(value));
@@ -44,11 +47,17 @@ export function ViewWeights() {
                       </ItemTitle>
                       <ItemDescription>{value.note}</ItemDescription>
                     </div>
-                    <div className="flex flex-row gap-1 items-center">
-                      <span className="text-lg font-medium">
-                        {value.weight}
-                      </span>
-                      <p className="text-sm font-light">lbs</p>
+                    <div className="flex flex-row gap-3 items-center">
+                      <div className="flex gap-1 items-center">
+                        <span className="text-lg font-medium">
+                          {value.weight}
+                        </span>
+                        <p className="text-sm font-light">lbs</p>
+                      </div>
+                      <Pencil
+                        size={17}
+                        onClick={() => navigate("/updateWeight")}
+                      />
                     </div>
                   </div>
                 </ItemContent>
