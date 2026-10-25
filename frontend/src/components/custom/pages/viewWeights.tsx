@@ -1,16 +1,16 @@
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
-import { cn } from "@/lib/utils";
+
 import { fetchWeights } from "@/services/weightServices";
 import type { Weight } from "@/types/weight";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Pencil } from "lucide-react";
 
 export function ViewWeights() {
@@ -71,15 +71,12 @@ export function ViewWeights() {
         </div>
       </div>
       <div className="max-w-full flex justify-center my-2">
-        <Link
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "max-w-[60%] bg-blue-500 h-11 hover:bg-blue-400",
-          )}
-          to="/"
+        <Button
+          className={"max-w-[60%] bg-blue-500 h-11 hover:bg-blue-400"}
+          onClick={() => navigate("/")}
         >
           + Log Today's Weight
-        </Link>
+        </Button>
       </div>
     </>
   );
