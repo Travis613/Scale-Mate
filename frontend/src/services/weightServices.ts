@@ -25,7 +25,7 @@ export async function logWeight(weight: number, note: string) {
 export async function fetchWeights() {
   try {
     const response = await axios.get(`${BASEURL}viewWeights`);
-    return response.data;
+    return response.data.reverse();
   } catch (error) {
     console.error(`Error fetching data: ${error}`);
   }

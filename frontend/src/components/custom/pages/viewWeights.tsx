@@ -25,7 +25,7 @@ export function ViewWeights() {
   return (
     <>
       <div className="max-w-2xl mx-auto mt-2 bg-white shadow-lg shadow-blue-100 p-6 border rounded-sm flex flex-col gap-5">
-        <div className="flex">
+        <div className="flex justify-between">
           <div>
             <h1 className="text-xl font-medium">Weight History</h1>
             <p className="font-light text-sm">
@@ -37,7 +37,7 @@ export function ViewWeights() {
         <div className="flex flex-col gap-2">
           {weights.length > 0 ? (
             weights.map((value) => (
-              <Item variant={"outline"} className="p-4">
+              <Item variant={"outline"} className="p-4" key={value.id}>
                 <ItemContent>
                   <div className="flex justify-between">
                     <div>
