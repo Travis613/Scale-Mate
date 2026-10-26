@@ -26,4 +26,8 @@ public class WeightService {
         Weight updatedWeight = repo.save(weight);
         return updatedWeight;
     }
+
+    public void deleteWeight(Long id){
+        repo.deleteById(id);
+    }
 }

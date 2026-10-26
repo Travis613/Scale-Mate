@@ -2,7 +2,7 @@ import { computeDateAndTime } from "@/util/weightUtils";
 
 import axios from "axios";
 
-const BASEURL = "http://localhost:8080/api/v1/";
+const BASEURL = "http://localhost:8081/api/v1/";
 
 export async function logWeight(weight: number, note: string) {
   const { date, time } = computeDateAndTime();
